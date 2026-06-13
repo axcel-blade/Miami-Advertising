@@ -1,46 +1,61 @@
 ---
 const categories = [
-  { id: 'all',      label: 'All Work' },
-  { id: 'vehicles', label: 'Vehicle Branding' },
-  { id: 'portfolio',label: 'Portfolio' },
+  { id: 'all',        label: 'All Work' },
+  { id: 'vehicles',  label: 'Vehicle Branding' },
+  { id: 'signage',   label: 'Signage' },
+  { id: 'branding',  label: 'Branding & Interiors' },
+  { id: 'production',label: 'Production' },
 ];
 
 const vehicleImages = [
-  { src: '/images/vehicles/hardees_truck.jpg',       alt: 'Hardees truck branding',       cat: 'vehicles' },
-  { src: '/images/vehicles/KFC_truck.jpg',           alt: 'KFC vehicle branding',          cat: 'vehicles' },
-  { src: '/images/vehicles/KK_trucks.jpg',           alt: 'Vehicle branding project',      cat: 'vehicles' },
-  { src: '/images/vehicles/TGI_trucks.jpg',          alt: 'TGI vehicle graphics',          cat: 'vehicles' },
-  { src: '/images/vehicles/PH_trucks.jpg',           alt: 'Pizza Hut truck branding',      cat: 'vehicles' },
-  { src: '/images/vehicles/RL_trucks.jpg',           alt: 'Vehicle graphics wrap',         cat: 'vehicles' },
-  { src: '/images/vehicles/OG_trucks.jpg',           alt: 'OG vehicle branding',           cat: 'vehicles' },
-  { src: '/images/vehicles/IMG_20170116_112206.jpg', alt: 'Vehicle branding side view',    cat: 'vehicles' },
-  { src: '/images/vehicles/IMG-20160809-WA0024.jpg', alt: 'Vehicle wrap design',           cat: 'vehicles' },
-  { src: '/images/vehicles/IMG-20150903-WA0045.jpg', alt: 'Delivery vehicle branding',     cat: 'vehicles' },
-  { src: '/images/vehicles/IMG-20150903-WA0046.jpg', alt: 'Branded delivery truck',        cat: 'vehicles' },
-  { src: '/images/vehicles/IMG_20170114_150442.jpg', alt: 'Vehicle graphics detail',       cat: 'vehicles' },
+  { src: '/images/vehicles/vehicle-hardees-trucks-wrap-design.jpg',        alt: "Hardee's delivery trucks — graphic design wrap",          cat: 'vehicles' },
+  { src: '/images/vehicles/vehicle-kfc-trucks-wrap-design.jpg',            alt: 'KFC delivery trucks — graphic design wrap',              cat: 'vehicles' },
+  { src: '/images/vehicles/vehicle-krispy-kreme-trucks-wrap-design.jpg',   alt: 'Krispy Kreme delivery trucks — Joy in a Box wrap design', cat: 'vehicles' },
+  { src: '/images/vehicles/vehicle-tgi-fridays-trucks-wrap-design.jpg',    alt: 'TGI Fridays delivery trucks — graphic design wrap',       cat: 'vehicles' },
+  { src: '/images/vehicles/vehicle-pizza-hut-trucks-wrap-design.jpg',      alt: 'Pizza Hut delivery trucks — graphic design wrap',        cat: 'vehicles' },
+  { src: '/images/vehicles/vehicle-red-lobster-trucks-wrap-design.jpg',    alt: 'Red Lobster delivery trucks — graphic design wrap',      cat: 'vehicles' },
+  { src: '/images/vehicles/vehicle-olive-garden-trucks-wrap-design.jpg',   alt: 'Olive Garden delivery trucks — graphic design wrap',     cat: 'vehicles' },
+  { src: '/images/vehicles/vehicle-red-lobster-truck-rear-photo.jpg',      alt: 'Red Lobster truck rear wrap — on-location photo',        cat: 'vehicles' },
+  { src: '/images/vehicles/vehicle-tgi-fridays-truck-rear-photo.jpg',      alt: 'TGI Fridays truck rear wrap — on-location photo',        cat: 'vehicles' },
+  { src: '/images/vehicles/vehicle-pizza-hut-truck-rear-photo.jpg',        alt: 'Pizza Hut truck rear wrap — on-location photo',          cat: 'vehicles' },
+  { src: '/images/vehicles/vehicle-kfc-truck-rear-photo.jpg',              alt: 'KFC truck rear wrap — on-location photo',                cat: 'vehicles' },
+  { src: '/images/vehicles/vehicle-imdad-van-wrap-photo.jpg',              alt: 'Imdad van full wrap — on-location photo',                cat: 'vehicles' },
+  { src: '/images/vehicles/vehicle-italy-hairfashion-van-wrap-photo.jpg',  alt: 'IT&LY Hair Fashion van wrap — on-location photo',        cat: 'vehicles' },
 ];
 
-const portfolioImages = [
-  { src: '/images/portfolio/IMG_1104.JPG',  alt: 'Production work',            cat: 'portfolio' },
-  { src: '/images/portfolio/IMG_1146.JPG',  alt: 'Advertising project',        cat: 'portfolio' },
-  { src: '/images/portfolio/IMG_1149.JPG',  alt: 'Branding installation',      cat: 'portfolio' },
-  { src: '/images/portfolio/IMG_1159.JPG',  alt: 'Signage work',               cat: 'portfolio' },
-  { src: '/images/portfolio/IMG_1247.JPG',  alt: 'Display stand',              cat: 'portfolio' },
-  { src: '/images/portfolio/IMG_1334.jpg',  alt: 'Interior branding',          cat: 'portfolio' },
-  { src: '/images/portfolio/IMG_1438.JPG',  alt: 'Promotional display',        cat: 'portfolio' },
-  { src: '/images/portfolio/IMG_1473.JPG',  alt: 'Exhibition setup',           cat: 'portfolio' },
-  { src: '/images/portfolio/IMG_1518.JPG',  alt: 'Branding project',           cat: 'portfolio' },
-  { src: '/images/portfolio/IMG_2403.jpg',  alt: 'Visual merchandising',       cat: 'portfolio' },
-  { src: '/images/portfolio/IMG_2805.JPG',  alt: 'Outdoor signage',            cat: 'portfolio' },
-  { src: '/images/portfolio/IMG_3076.jpg',  alt: 'Corporate identity work',    cat: 'portfolio' },
-  { src: '/images/portfolio/IMG_3791.JPG',  alt: 'Advertising campaign',       cat: 'portfolio' },
-  { src: '/images/portfolio/IMG_3826.JPG',  alt: 'Store display',              cat: 'portfolio' },
-  { src: '/images/portfolio/IMG_4139.JPG',  alt: 'Production output',          cat: 'portfolio' },
-  { src: '/images/portfolio/IMG_0001.JPG',  alt: 'Advertising work',           cat: 'portfolio' },
-  { src: '/images/portfolio/IMG_0047.JPG',  alt: 'Branding display',           cat: 'portfolio' },
+const signageImages = [
+  { src: '/images/portfolio/signage-sol-restaurant-outdoor-flags.jpg',       alt: 'SOL Restaurant — outdoor feather flags',                 cat: 'signage' },
+  { src: '/images/portfolio/signage-sol-restaurant-indoor-acrylic.jpg',      alt: 'SOL Restaurant — indoor acrylic signage close-up',       cat: 'signage' },
+  { src: '/images/portfolio/signage-sol-restaurant-exterior-view.jpg',       alt: 'SOL Restaurant — exterior signage street view',          cat: 'signage' },
+  { src: '/images/portfolio/signage-garage-the-grill-outdoor-round.jpg',     alt: 'Garage The Grill — outdoor illuminated round sign',      cat: 'signage' },
+  { src: '/images/portfolio/signage-kfc-outdoor-projecting-sign.jpg',        alt: 'KFC — outdoor projecting sign',                          cat: 'signage' },
+  { src: '/images/portfolio/signage-dubai-optical-indoor-lightbox.jpg',      alt: 'Dubai Optical — indoor lightbox sign',                   cat: 'signage' },
+  { src: '/images/portfolio/signage-dubai-optical-storefront-exterior.jpg',  alt: 'Dubai Optical — storefront exterior sign',               cat: 'signage' },
+  { src: '/images/portfolio/signage-tucano-coffee-outdoor-frontlit.jpg',     alt: 'Tucano Coffee — outdoor front-lit sign',                 cat: 'signage' },
+  { src: '/images/portfolio/signage-sfsf-building-outdoor-installation.jpg', alt: 'SFSF — large building outdoor sign installation',        cat: 'signage' },
+  { src: '/images/portfolio/signage-rodenstock-whypink-instore-display.jpg', alt: 'Rodenstock #WhyPink — in-store campaign display',        cat: 'signage' },
+  { src: '/images/portfolio/signage-dmk-aesthetic-center-indoor-acrylic.jpg',alt: 'DMK Aesthetic Center — indoor acrylic sign',             cat: 'signage' },
+  { src: '/images/portfolio/signage-schneider-electric-glass-branding.jpg',  alt: 'Schneider Electric — office glass branding',             cat: 'signage' },
 ];
 
-const allImages = [...vehicleImages, ...portfolioImages];
+const brandingImages = [
+  { src: '/images/portfolio/branding-kfc-store-window-display.jpg',          alt: 'KFC — full-store window graphic display',                cat: 'branding' },
+  { src: '/images/portfolio/branding-texas-chicken-burger-king-facade.jpg',  alt: 'Texas Chicken & Burger King — dual-brand facade wrap',   cat: 'branding' },
+  { src: '/images/portfolio/branding-baldinini-store-floor-graphic.jpg',     alt: 'Baldinini — large-format store floor graphic',           cat: 'branding' },
+  { src: '/images/portfolio/branding-elisabetta-franchi-store-interior.jpg', alt: 'Elisabetta Franchi — store interior display branding',   cat: 'branding' },
+  { src: '/images/portfolio/visual-merch-kido-store-interior.jpg',           alt: 'Kido — store interior visual merchandising',             cat: 'branding' },
+];
+
+const productionImages = [
+  { src: '/images/portfolio/production-buffalo-wild-wings-display-stand.jpg', alt: 'Buffalo Wild Wings — branded display stand production', cat: 'production' },
+  { src: '/images/portfolio/production-canvas-multiprint-wall-art.jpg',       alt: 'Multi-panel canvas print — ship sunset wall art',       cat: 'production' },
+  { src: '/images/portfolio/production-italy-hairfashion-acrylic-display.jpg',alt: 'IT&LY Hair Fashion — acrylic desk display stand',       cat: 'production' },
+  { src: '/images/portfolio/production-retail-display-stand-tiered-green.jpg',alt: 'Custom tiered retail display stand — green finish',     cat: 'production' },
+  { src: '/images/portfolio/production-unitech-3d-foam-letters.jpg',          alt: 'Unitech — 3D foam letter production in workshop',       cat: 'production' },
+  { src: '/images/portfolio/production-dynamik-feather-flags-event.jpg',      alt: 'Dynamik — feather flag stands for event',               cat: 'production' },
+];
+
+const allImages = [...vehicleImages, ...signageImages, ...brandingImages, ...productionImages];
 ---
 
 <section class="portfolio" id="portfolio">
@@ -48,7 +63,7 @@ const allImages = [...vehicleImages, ...portfolioImages];
     <div class="portfolio-header reveal">
       <span class="section-label">Our Work</span>
       <h2 class="section-title">Our <span>Portfolio</span></h2>
-      <p class="section-body">A selection of our branding, advertising, production and vehicle graphics work.</p>
+      <p class="section-body">Vehicle graphics, signage, store branding and production work across the UAE.</p>
     </div>
 
     <div class="filter-bar reveal">
@@ -61,7 +76,7 @@ const allImages = [...vehicleImages, ...portfolioImages];
 
     <div class="portfolio-grid" id="portfolio-grid">
       {allImages.map(img => (
-        <div class={`pf-item reveal`} data-cat={img.cat}>
+        <div class="pf-item reveal" data-cat={img.cat}>
           <div class="pf-img-wrap">
             <img src={img.src} alt={img.alt} loading="lazy" />
             <div class="pf-overlay">
@@ -89,14 +104,14 @@ const allImages = [...vehicleImages, ...portfolioImages];
 
   .filter-bar {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 40px;
   }
 
   .filter-btn {
-    padding: 8px 22px;
+    padding: 8px 20px;
     border: 1.5px solid #ddd;
     background: transparent;
     border-radius: 40px;
@@ -142,7 +157,7 @@ const allImages = [...vehicleImages, ...portfolioImages];
   .pf-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,.7) 0%, transparent 60%);
+    background: linear-gradient(to top, rgba(0,0,0,.75) 0%, transparent 55%);
     opacity: 0;
     display: flex;
     align-items: flex-end;
@@ -156,6 +171,7 @@ const allImages = [...vehicleImages, ...portfolioImages];
     font-size: 13px;
     font-weight: 500;
     color: #fff;
+    line-height: 1.3;
   }
 
   @media (max-width: 600px) {
