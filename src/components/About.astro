@@ -1,0 +1,142 @@
+---
+---
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-text reveal">
+      <span class="section-label">Who We Are</span>
+      <h2 class="section-title">A Welcome <span>Note</span></h2>
+      <p class="section-body">
+        MIAMI is a regional Dubai-based advertising, production, marketing and event management company.
+        We are dedicated to offering our clients the best value for their identity by taking a comprehensive
+        approach to their needs.
+      </p>
+      <p class="section-body" style="margin-top:16px">
+        Our commitment is to extend world-class service, high quality results, and innovation. We build
+        complete and comprehensive business solutions to help clients manage their corporate identity.
+      </p>
+
+      <div class="about-stats">
+        <div class="stat">
+          <span class="stat-num">20+</span>
+          <span class="stat-lbl">Years Experience</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">3</span>
+          <span class="stat-lbl">Core Divisions</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">24+</span>
+          <span class="stat-lbl">Major Clients</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-cards reveal">
+      <div class="about-card mission">
+        <div class="card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Mission</h3>
+        <p>We strive to provide best-in-class services while creating a workplace environment that attracts exceptional and talented individuals, together bringing our art to perfection.</p>
+      </div>
+
+      <div class="about-card vision">
+        <div class="card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>Vision</h3>
+        <p>MIAMI aspires to be regionally recognized as a highly creative and dedicated branding consultancy firm — the ideal business partner for all your advertising, production, event and marketing needs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: var(--section-py) 0;
+    background: var(--clr-light);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .about-stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  .stat { display: flex; flex-direction: column; gap: 4px; }
+
+  .stat-num {
+    font-family: var(--font-head);
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--clr-accent);
+    line-height: 1;
+  }
+
+  .stat-lbl {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--clr-mid);
+  }
+
+  .about-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .about-card {
+    background: var(--clr-white);
+    border-radius: 8px;
+    padding: 32px;
+    border-left: 4px solid transparent;
+    box-shadow: 0 2px 16px rgba(0,0,0,.06);
+    transition: transform .2s, box-shadow .2s;
+  }
+
+  .about-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,.1); }
+
+  .about-card.mission { border-left-color: var(--clr-accent); }
+  .about-card.vision  { border-left-color: var(--clr-green); }
+
+  .card-icon {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin-bottom: 16px;
+  }
+
+  .mission .card-icon { background: rgba(228,23,75,.08); color: var(--clr-accent); }
+  .vision  .card-icon { background: rgba(42,122,42,.08); color: var(--clr-green); }
+
+  .about-card h3 {
+    font-family: var(--font-head);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--clr-dark);
+  }
+
+  .about-card p {
+    font-size: 15px;
+    color: var(--clr-mid);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-stats { gap: 24px; }
+  }
+</style>

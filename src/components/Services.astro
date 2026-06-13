@@ -1,0 +1,274 @@
+---
+const advertising = [
+  'Logos, Letterheads, Envelopes, Business Cards',
+  'Brochures, Magazines, Flyers, Leaflets, Booklets',
+  'Banners, Signboards, Rollups, Popups, Backdrops',
+  'E-Cards, Posters, Folders, Binders, Stamps',
+  'Websites & Packaging',
+  'Copywriting — Slogans, Advertorials',
+  'Branding — Building, Consultancy, Management',
+  'Campaign Planning & Photography',
+  'Brand Reminders & Promotional Items',
+];
+
+const production = [
+  'Digital Printing — Banners, Signboards, Rollups',
+  'Signs — Exterior, Interior, Way Finding, LED',
+  'Roll-Up Stands & Pop-Up Displays',
+  'Exhibition Booths, Kiosks & Podiums',
+  'Vehicle Graphics & Wrapping',
+  'Show Cards, Store Displays & Light Boxes',
+  'Billboard & Mupi Advertising',
+  'Canvas, Glass Frames & Hanging Banners',
+  'Flyer Holders & See-Thru Window Displays',
+];
+
+const marketing = [
+  'Email, SMS & MMS Marketing',
+  'Direct Marketing & Post Mailing',
+  'Market Research & E-Branding',
+  'Building a Customer-Focused Organisation',
+  'Results-Driven & Defensive Marketing',
+  'Strategic Brand Positioning',
+  'Visual Merchandising — Window Displays & Signage',
+  'Interior Displays & Cosmetic Promotions',
+  'Customer Profitability Management',
+];
+---
+
+<section class="services" id="services">
+
+  <!-- Section intro -->
+  <div class="services-intro">
+    <div class="container">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Our <span>Sections</span></h2>
+      <p class="section-body">Three specialized divisions working together to deliver complete brand solutions.</p>
+    </div>
+  </div>
+
+  <!-- Advertising -->
+  <div class="svc-block adv-block" id="advertising">
+    <div class="container svc-inner">
+      <div class="svc-text reveal">
+        <div class="svc-label">
+          <span class="svc-tag">01</span>
+          <span class="svc-name">ADVERTISING</span>
+        </div>
+        <h2 class="svc-title">Discover the Realm of Our<br /><strong>Advertising Capabilities</strong></h2>
+        <p class="svc-desc">If you are a business with an image to keep, MIAMI is your answer. Below the line, above the line — we know exactly what you need. We are creative, we are smart, and we develop our trade to an art.</p>
+        <ul class="svc-list">
+          {advertising.map(item => <li><span class="list-arrow">›</span>{item}</li>)}
+        </ul>
+      </div>
+      <div class="svc-deco adv-deco reveal" aria-hidden="true">
+        <div class="deco-grid">
+          {Array.from({length: 9}).map((_, i) => <div class={`deco-cell c${i}`}></div>)}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Production -->
+  <div class="svc-block prod-block" id="production">
+    <div class="container svc-inner reverse">
+      <div class="svc-deco prod-deco reveal" aria-hidden="true">
+        <div class="deco-grid">
+          {Array.from({length: 9}).map((_, i) => <div class={`deco-cell c${i}`}></div>)}
+        </div>
+      </div>
+      <div class="svc-text reveal">
+        <div class="svc-label">
+          <span class="svc-tag">02</span>
+          <span class="svc-name">PRODUCTION</span>
+        </div>
+        <h2 class="svc-title">Your Business is at the Heart of<br /><strong>Our Business</strong></h2>
+        <p class="svc-desc">We trek mountains to bring solutions to all our clients. MIAMI has a network of reliable third-party suppliers who offer high quality products at great value for money.</p>
+        <ul class="svc-list">
+          {production.map(item => <li><span class="list-arrow">›</span>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Marketing -->
+  <div class="svc-block mkt-block" id="marketing">
+    <div class="container svc-inner">
+      <div class="svc-text reveal">
+        <div class="svc-label">
+          <span class="svc-tag">03</span>
+          <span class="svc-name">MARKETING &amp; VISUAL MERCHANDISING</span>
+        </div>
+        <h2 class="svc-title">We Understand Your<br /><strong>Business Needs</strong></h2>
+        <p class="svc-desc">We keep an eye on market trends and industry evolution to tailor-made the ideal marketing plan that fits your budget and guarantees your organisation a positive return on investment.</p>
+        <ul class="svc-list">
+          {marketing.map(item => <li><span class="list-arrow">›</span>{item}</li>)}
+        </ul>
+      </div>
+      <div class="svc-deco mkt-deco reveal" aria-hidden="true">
+        <div class="deco-grid">
+          {Array.from({length: 9}).map((_, i) => <div class={`deco-cell c${i}`}></div>)}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .services { background: var(--clr-white); }
+
+  .services-intro {
+    padding: var(--section-py) 0 40px;
+    text-align: center;
+  }
+
+  .services-intro .section-body { margin-inline: auto; }
+
+  /* Blocks */
+  .svc-block { padding: 80px 0; }
+
+  .adv-block { background: #fafafa; }
+  .prod-block { background: #f0faf0; }
+  .mkt-block  { background: #fff9f0; }
+
+  .svc-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .svc-inner.reverse { direction: rtl; }
+  .svc-inner.reverse > * { direction: ltr; }
+
+  .svc-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .svc-tag {
+    font-family: var(--font-head);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1;
+    opacity: .12;
+    color: var(--clr-dark);
+  }
+
+  .svc-name {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .adv-block .svc-name  { color: var(--clr-red); }
+  .prod-block .svc-name { color: var(--clr-green); }
+  .mkt-block .svc-name  { color: var(--clr-orange); }
+
+  .svc-title {
+    font-family: var(--font-head);
+    font-size: clamp(26px, 3.5vw, 40px);
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: var(--clr-dark);
+  }
+
+  .svc-title strong { display: block; }
+  .adv-block  .svc-title strong { color: var(--clr-red); }
+  .prod-block .svc-title strong { color: var(--clr-green); }
+  .mkt-block  .svc-title strong { color: var(--clr-orange); }
+
+  .svc-desc {
+    font-size: 15px;
+    color: var(--clr-mid);
+    line-height: 1.8;
+    margin-bottom: 28px;
+    max-width: 500px;
+  }
+
+  .svc-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+  }
+
+  .svc-list li {
+    font-size: 14px;
+    color: var(--clr-mid);
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+  }
+
+  .list-arrow {
+    font-weight: 700;
+    margin-top: -1px;
+    flex-shrink: 0;
+  }
+
+  .adv-block  .list-arrow { color: var(--clr-red); }
+  .prod-block .list-arrow { color: var(--clr-green); }
+  .mkt-block  .list-arrow { color: var(--clr-orange); }
+
+  /* Decorative triangle grids */
+  .svc-deco { display: flex; justify-content: center; align-items: center; }
+
+  .deco-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+    gap: 4px;
+  }
+
+  .deco-cell {
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    opacity: .7;
+  }
+
+  /* Advertising colors – red palette */
+  .adv-deco .c0 { background: #e63946; }
+  .adv-deco .c1 { background: #c1121f; clip-path: polygon(0 0, 100% 0, 50% 100%); }
+  .adv-deco .c2 { background: #e63946; opacity: .4; }
+  .adv-deco .c3 { background: #c1121f; clip-path: polygon(0 0, 100% 0, 50% 100%); opacity:.5; }
+  .adv-deco .c4 { background: #ff6b6b; }
+  .adv-deco .c5 { background: #e63946; clip-path: polygon(0 0, 100% 0, 50% 100%); opacity:.6; }
+  .adv-deco .c6 { background: #c1121f; opacity:.3; }
+  .adv-deco .c7 { background: #ff6b6b; clip-path: polygon(0 0, 100% 0, 50% 100%); opacity:.5; }
+  .adv-deco .c8 { background: #e63946; opacity:.8; }
+
+  /* Production colors – green palette */
+  .prod-deco .c0 { background: #2d6a4f; }
+  .prod-deco .c1 { background: #40916c; clip-path: polygon(0 0, 100% 0, 50% 100%); }
+  .prod-deco .c2 { background: #52b788; opacity: .4; }
+  .prod-deco .c3 { background: #2d6a4f; clip-path: polygon(0 0, 100% 0, 50% 100%); opacity:.5; }
+  .prod-deco .c4 { background: #40916c; }
+  .prod-deco .c5 { background: #52b788; clip-path: polygon(0 0, 100% 0, 50% 100%); opacity:.6; }
+  .prod-deco .c6 { background: #2d6a4f; opacity:.3; }
+  .prod-deco .c7 { background: #40916c; clip-path: polygon(0 0, 100% 0, 50% 100%); opacity:.5; }
+  .prod-deco .c8 { background: #52b788; opacity:.8; }
+
+  /* Marketing colors – orange palette */
+  .mkt-deco .c0 { background: #f4a261; }
+  .mkt-deco .c1 { background: #e76f51; clip-path: polygon(0 0, 100% 0, 50% 100%); }
+  .mkt-deco .c2 { background: #f4a261; opacity: .4; }
+  .mkt-deco .c3 { background: #e76f51; clip-path: polygon(0 0, 100% 0, 50% 100%); opacity:.5; }
+  .mkt-deco .c4 { background: #e07b00; }
+  .mkt-deco .c5 { background: #f4a261; clip-path: polygon(0 0, 100% 0, 50% 100%); opacity:.6; }
+  .mkt-deco .c6 { background: #e07b00; opacity:.3; }
+  .mkt-deco .c7 { background: #e76f51; clip-path: polygon(0 0, 100% 0, 50% 100%); opacity:.5; }
+  .mkt-deco .c8 { background: #f4a261; opacity:.8; }
+
+  @media (max-width: 900px) {
+    .svc-inner, .svc-inner.reverse {
+      grid-template-columns: 1fr;
+      direction: ltr;
+    }
+    .svc-deco { display: none; }
+    .svc-list { grid-template-columns: 1fr; }
+  }
+</style>

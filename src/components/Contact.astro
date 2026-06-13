@@ -1,0 +1,243 @@
+---
+---
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+
+    <div class="contact-info reveal">
+      <span class="section-label">Get In Touch</span>
+      <h2 class="section-title">Let's Work <span>Together</span></h2>
+      <p class="section-body">
+        Ready to empower your brand? Reach out to the Miami Advertising team — we're here to build
+        a comprehensive business solution tailored to your needs.
+      </p>
+
+      <div class="contact-details">
+        <div class="cd-item">
+          <div class="cd-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/></svg>
+          </div>
+          <div>
+            <strong>Address</strong>
+            <span>IND. Area 13, Shed No. 3, Behind Al Shola School<br />P.O.Box 44292 – Sharjah, UAE</span>
+          </div>
+        </div>
+
+        <div class="cd-item">
+          <div class="cd-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+          </div>
+          <div>
+            <strong>Phone</strong>
+            <span>T: +971 6 542 0994</span>
+            <span>F: +971 6 542 0995</span>
+          </div>
+        </div>
+
+        <div class="cd-item">
+          <div class="cd-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div>
+            <strong>Email</strong>
+            <span>info@miamiadv.ae</span>
+          </div>
+        </div>
+
+        <div class="cd-item">
+          <div class="cd-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          </div>
+          <div>
+            <strong>Website</strong>
+            <span>www.miamiadv.ae</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form reveal" id="contact-form">
+      <h3>Send Us a Message</h3>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="service">Service Interested In</label>
+        <select id="service" name="service">
+          <option value="">Select a service…</option>
+          <option>Advertising & Branding</option>
+          <option>Production & Printing</option>
+          <option>Marketing & Visual Merchandising</option>
+          <option>Vehicle Graphics</option>
+          <option>Exhibition & Events</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Tell us about your project…" required></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">Send Message</button>
+
+      <p class="form-note">We'll respond within 1–2 business days.</p>
+    </form>
+
+  </div>
+</section>
+
+<style>
+  .contact {
+    padding: var(--section-py) 0;
+    background: var(--clr-light);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  /* Info side */
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .cd-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .cd-icon {
+    width: 44px; height: 44px;
+    background: rgba(228,23,75,.1);
+    color: var(--clr-accent);
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+
+  .cd-item > div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .cd-item strong {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--clr-dark);
+    margin-bottom: 4px;
+  }
+
+  .cd-item span {
+    font-size: 14px;
+    color: var(--clr-mid);
+    line-height: 1.6;
+  }
+
+  /* Form side */
+  .contact-form {
+    background: var(--clr-white);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 32px rgba(0,0,0,.07);
+  }
+
+  .contact-form h3 {
+    font-family: var(--font-head);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 28px;
+    color: var(--clr-dark);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    color: var(--clr-mid);
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: var(--font-body);
+    color: var(--clr-dark);
+    background: #fafafa;
+    transition: border-color .2s, background .2s;
+    outline: none;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--clr-accent);
+    background: #fff;
+  }
+
+  textarea { resize: vertical; min-height: 120px; }
+
+  .form-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--clr-accent);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+    letter-spacing: .5px;
+    margin-top: 4px;
+  }
+
+  .form-submit:hover { background: #c0102e; transform: translateY(-2px); }
+
+  .form-note {
+    font-size: 12px;
+    color: #aaa;
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .form-row     { grid-template-columns: 1fr; }
+    .contact-form { padding: 28px 20px; }
+  }
+</style>

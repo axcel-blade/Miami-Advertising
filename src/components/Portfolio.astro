@@ -1,0 +1,182 @@
+---
+const categories = [
+  { id: 'all',      label: 'All Work' },
+  { id: 'vehicles', label: 'Vehicle Branding' },
+  { id: 'portfolio',label: 'Portfolio' },
+];
+
+const vehicleImages = [
+  { src: '/images/vehicles/hardees_truck.jpg',       alt: 'Hardees truck branding',       cat: 'vehicles' },
+  { src: '/images/vehicles/KFC_truck.jpg',           alt: 'KFC vehicle branding',          cat: 'vehicles' },
+  { src: '/images/vehicles/KK_trucks.jpg',           alt: 'Vehicle branding project',      cat: 'vehicles' },
+  { src: '/images/vehicles/TGI_trucks.jpg',          alt: 'TGI vehicle graphics',          cat: 'vehicles' },
+  { src: '/images/vehicles/PH_trucks.jpg',           alt: 'Pizza Hut truck branding',      cat: 'vehicles' },
+  { src: '/images/vehicles/RL_trucks.jpg',           alt: 'Vehicle graphics wrap',         cat: 'vehicles' },
+  { src: '/images/vehicles/OG_trucks.jpg',           alt: 'OG vehicle branding',           cat: 'vehicles' },
+  { src: '/images/vehicles/IMG_20170116_112206.jpg', alt: 'Vehicle branding side view',    cat: 'vehicles' },
+  { src: '/images/vehicles/IMG-20160809-WA0024.jpg', alt: 'Vehicle wrap design',           cat: 'vehicles' },
+  { src: '/images/vehicles/IMG-20150903-WA0045.jpg', alt: 'Delivery vehicle branding',     cat: 'vehicles' },
+  { src: '/images/vehicles/IMG-20150903-WA0046.jpg', alt: 'Branded delivery truck',        cat: 'vehicles' },
+  { src: '/images/vehicles/IMG_20170114_150442.jpg', alt: 'Vehicle graphics detail',       cat: 'vehicles' },
+];
+
+const portfolioImages = [
+  { src: '/images/portfolio/IMG_1104.JPG',  alt: 'Production work',            cat: 'portfolio' },
+  { src: '/images/portfolio/IMG_1146.JPG',  alt: 'Advertising project',        cat: 'portfolio' },
+  { src: '/images/portfolio/IMG_1149.JPG',  alt: 'Branding installation',      cat: 'portfolio' },
+  { src: '/images/portfolio/IMG_1159.JPG',  alt: 'Signage work',               cat: 'portfolio' },
+  { src: '/images/portfolio/IMG_1247.JPG',  alt: 'Display stand',              cat: 'portfolio' },
+  { src: '/images/portfolio/IMG_1334.jpg',  alt: 'Interior branding',          cat: 'portfolio' },
+  { src: '/images/portfolio/IMG_1438.JPG',  alt: 'Promotional display',        cat: 'portfolio' },
+  { src: '/images/portfolio/IMG_1473.JPG',  alt: 'Exhibition setup',           cat: 'portfolio' },
+  { src: '/images/portfolio/IMG_1518.JPG',  alt: 'Branding project',           cat: 'portfolio' },
+  { src: '/images/portfolio/IMG_2403.jpg',  alt: 'Visual merchandising',       cat: 'portfolio' },
+  { src: '/images/portfolio/IMG_2805.JPG',  alt: 'Outdoor signage',            cat: 'portfolio' },
+  { src: '/images/portfolio/IMG_3076.jpg',  alt: 'Corporate identity work',    cat: 'portfolio' },
+  { src: '/images/portfolio/IMG_3791.JPG',  alt: 'Advertising campaign',       cat: 'portfolio' },
+  { src: '/images/portfolio/IMG_3826.JPG',  alt: 'Store display',              cat: 'portfolio' },
+  { src: '/images/portfolio/IMG_4139.JPG',  alt: 'Production output',          cat: 'portfolio' },
+  { src: '/images/portfolio/IMG_0001.JPG',  alt: 'Advertising work',           cat: 'portfolio' },
+  { src: '/images/portfolio/IMG_0047.JPG',  alt: 'Branding display',           cat: 'portfolio' },
+];
+
+const allImages = [...vehicleImages, ...portfolioImages];
+---
+
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="portfolio-header reveal">
+      <span class="section-label">Our Work</span>
+      <h2 class="section-title">Our <span>Portfolio</span></h2>
+      <p class="section-body">A selection of our branding, advertising, production and vehicle graphics work.</p>
+    </div>
+
+    <div class="filter-bar reveal">
+      {categories.map(c => (
+        <button class={`filter-btn${c.id === 'all' ? ' active' : ''}`} data-cat={c.id}>
+          {c.label}
+        </button>
+      ))}
+    </div>
+
+    <div class="portfolio-grid" id="portfolio-grid">
+      {allImages.map(img => (
+        <div class={`pf-item reveal`} data-cat={img.cat}>
+          <div class="pf-img-wrap">
+            <img src={img.src} alt={img.alt} loading="lazy" />
+            <div class="pf-overlay">
+              <span>{img.alt}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .portfolio {
+    padding: var(--section-py) 0;
+    background: var(--clr-light);
+  }
+
+  .portfolio-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .portfolio-header .section-body { margin-inline: auto; }
+
+  .filter-bar {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .filter-btn {
+    padding: 8px 22px;
+    border: 1.5px solid #ddd;
+    background: transparent;
+    border-radius: 40px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--clr-mid);
+    transition: all .2s;
+    letter-spacing: .5px;
+  }
+
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--clr-accent);
+    border-color: var(--clr-accent);
+    color: #fff;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .pf-item { border-radius: 6px; overflow: hidden; }
+
+  .pf-item[data-hidden] { display: none; }
+
+  .pf-img-wrap {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: #e0e0e0;
+  }
+
+  .pf-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease;
+  }
+
+  .pf-item:hover .pf-img-wrap img { transform: scale(1.06); }
+
+  .pf-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,.7) 0%, transparent 60%);
+    opacity: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+    transition: opacity .3s;
+  }
+
+  .pf-item:hover .pf-overlay { opacity: 1; }
+
+  .pf-overlay span {
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  @media (max-width: 600px) {
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  }
+</style>
+
+<script>
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const pfItems    = document.querySelectorAll<HTMLElement>('.pf-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cat = btn.dataset.cat;
+      pfItems.forEach(item => {
+        const show = cat === 'all' || item.dataset.cat === cat;
+        item.toggleAttribute('data-hidden', !show);
+      });
+    });
+  });
+</script>
