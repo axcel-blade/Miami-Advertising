@@ -1,10 +1,11 @@
 ---
 const categories = [
-  { id: 'all',        label: 'All Work' },
-  { id: 'vehicles',  label: 'Vehicle Branding' },
-  { id: 'signage',   label: 'Signage' },
-  { id: 'branding',  label: 'Branding & Interiors' },
-  { id: 'production',label: 'Production' },
+  { id: 'all',         label: 'All Work' },
+  { id: 'vehicles',   label: 'Vehicle Branding' },
+  { id: 'signage',    label: 'Signage' },
+  { id: 'branding',   label: 'Branding & Design' },
+  { id: 'exhibition', label: 'Exhibitions' },
+  { id: 'production', label: 'Production' },
 ];
 
 const vehicleImages = [
@@ -32,6 +33,8 @@ const signageImages = [
   { src: '/images/portfolio/signage-rodenstock-whypink-instore-display.jpg', alt: 'Rodenstock #WhyPink — in-store campaign display',        cat: 'signage' },
   { src: '/images/portfolio/signage-dmk-aesthetic-center-indoor-acrylic.jpg',alt: 'DMK Aesthetic Center — indoor acrylic sign',             cat: 'signage' },
   { src: '/images/portfolio/signage-schneider-electric-glass-branding.jpg',  alt: 'Schneider Electric — office glass branding',             cat: 'signage' },
+  { src: '/images/signage-burger-king-window-graphics.png',                   alt: 'Burger King — "Home of the Whopper" window graphics',     cat: 'signage' },
+  { src: '/images/signage-texas-chicken-window-graphics.png',                 alt: 'Texas Chicken — restaurant window graphics wrap',         cat: 'signage' },
 ];
 
 const brandingImages = [
@@ -40,6 +43,23 @@ const brandingImages = [
   { src: '/images/portfolio/branding-baldinini-store-floor-graphic.jpg',     alt: 'Baldinini — large-format store floor graphic',           cat: 'branding' },
   { src: '/images/portfolio/branding-elisabetta-franchi-store-interior.jpg', alt: 'Elisabetta Franchi — store interior display branding',   cat: 'branding' },
   { src: '/images/portfolio/visual-merch-kido-store-interior.jpg',           alt: 'Kido — store interior visual merchandising',             cat: 'branding' },
+  { src: '/images/branding-glomar-stationery-design.png',                    alt: 'Glomar Trading — corporate stationery set design',       cat: 'branding' },
+  { src: '/images/branding-italy-hairfashion-invitation-design.png',         alt: 'IT&LY Hair Fashion — Beauty Studio grand opening invite', cat: 'branding' },
+  { src: '/images/branding-magic-energy-drink-launch-pack.png',              alt: 'Magic energy drink — product launch DM pack design',     cat: 'branding' },
+  { src: '/images/branding-amro-style-brochure-design.png',                  alt: 'Amro Style — bi-fold brochure design',                   cat: 'branding' },
+  { src: '/images/branding-gnt-catalogue-design.png',                        alt: 'GNT — product catalogue design',                        cat: 'branding' },
+  { src: '/images/branding-glomar-website-mockup.png',                       alt: 'Glomar Trading — responsive website design mockup',      cat: 'branding' },
+  { src: '/images/branding-glomar-3d-logo.png',                              alt: 'Glomar Trading — 3D rendered logo mark',                 cat: 'branding' },
+  { src: '/images/branding-italy-hairfashion-catalogue-design.png',          alt: 'IT&LY Hair Fashion — Aquarely product catalogue spread', cat: 'branding' },
+  { src: '/images/branding-ssm-brochure-design.png',                         alt: 'SSM — tri-fold brochure design',                        cat: 'branding' },
+  { src: '/images/branding-ssm-stationery-design.png',                       alt: 'SSM — corporate stationery set design',                  cat: 'branding' },
+];
+
+const exhibitionImages = [
+  { src: '/images/exhibition-soko-butterfly-krups-stands.png',  alt: 'Exhibition stands — SOKO, Butterfly, Krups, Extrude designs', cat: 'exhibition' },
+  { src: '/images/exhibition-green-mazda-tabasco-stands.png',   alt: 'Exhibition stands — organic green brand, Mazda, Tabasco',     cat: 'exhibition' },
+  { src: '/images/exhibition-sadia-organic-stands.png',         alt: 'Exhibition stands — Sadia branded event stand',               cat: 'exhibition' },
+  { src: '/images/exhibition-frg-garrard-red-stands.png',       alt: 'Exhibition stands — FRG, Garrard jewellery kiosk, red stand', cat: 'exhibition' },
 ];
 
 const productionImages = [
@@ -51,7 +71,7 @@ const productionImages = [
   { src: '/images/portfolio/production-dynamik-feather-flags-event.jpg',      alt: 'Dynamik — feather flag stands for event',               cat: 'production' },
 ];
 
-const allImages = [...vehicleImages, ...signageImages, ...brandingImages, ...productionImages];
+const allImages = [...vehicleImages, ...signageImages, ...brandingImages, ...exhibitionImages, ...productionImages];
 ---
 
 <section class="portfolio" id="portfolio">
