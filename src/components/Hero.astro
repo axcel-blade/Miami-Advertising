@@ -16,7 +16,11 @@
   <div class="container hero-inner">
     <div class="hero-content">
       <div class="hero-logo">
-        <img src="/images/logomark-and-wordmark.png" alt="Miami Advertising" class="hero-logo-img" />
+        <img src="/images/logo.jpeg" alt="Miami Advertising logo" class="hero-logo-img" />
+        <span class="hero-wordmark">
+          <span class="hwm-miami">MIAMI</span>
+          <span class="hwm-adv">ADVERTISING</span>
+        </span>
       </div>
 
       <h1 class="hero-tagline">EMPOWER<br /><em>YOUR NEEDS</em></h1>
@@ -99,15 +103,39 @@
   .hero-logo {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 18px;
     margin-bottom: 32px;
   }
 
   .hero-logo-img {
-    height: 140px;
-    width: auto;
-    object-fit: contain;
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 6px;
     flex-shrink: 0;
+  }
+
+  .hero-wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    gap: 4px;
+  }
+
+  .hwm-miami {
+    font-family: var(--font-head);
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    color: #fff;
+  }
+
+  .hwm-adv {
+    font-family: var(--font-head);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    color: rgba(255,255,255,.65);
   }
 
   .hero-tagline {

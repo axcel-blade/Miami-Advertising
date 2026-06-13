@@ -22,7 +22,11 @@ const services = [
 
     <div class="footer-brand">
       <div class="foot-logo">
-        <img src="/images/logomark-and-wordmark.png" alt="Miami Advertising" class="foot-logo-img" />
+        <img src="/images/logo.jpeg" alt="Miami Advertising logo" class="foot-logo-img" />
+        <span class="foot-wordmark">
+          <span class="fwm-miami">MIAMI</span>
+          <span class="fwm-adv">ADVERTISING</span>
+        </span>
       </div>
       <p class="foot-tagline">EMPOWER YOUR NEEDS</p>
       <p class="foot-desc">
@@ -95,15 +99,39 @@ const services = [
   .foot-logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 14px;
     margin-bottom: 16px;
   }
 
   .foot-logo-img {
-    height: 80px;
-    width: auto;
-    object-fit: contain;
+    height: 52px;
+    width: 52px;
+    object-fit: cover;
+    border-radius: 4px;
     flex-shrink: 0;
+  }
+
+  .foot-wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    gap: 3px;
+  }
+
+  .fwm-miami {
+    font-family: var(--font-head);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #fff;
+  }
+
+  .fwm-adv {
+    font-family: var(--font-head);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    color: rgba(255,255,255,.55);
   }
 
   .foot-tagline {
