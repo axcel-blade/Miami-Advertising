@@ -27,4 +27,5 @@ pnpm-debug.log*
 CLAUDE.md
 .claude/
 
+# Source assets (large PSD files)
 Website resources/
