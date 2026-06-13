@@ -1,19 +1,13 @@
 ---
 const categories = [
   { id: 'all',         label: 'All Work' },
-  { id: 'vehicles',   label: 'Vehicle Branding' },
   { id: 'signage',    label: 'Signage' },
   { id: 'branding',   label: 'Branding & Design' },
   { id: 'exhibition', label: 'Exhibitions' },
   { id: 'production', label: 'Production' },
 ];
 
-const vehicleImages = [
-  { src: '/images/vehicles/vehicle-kfc-trucks-wrap-design.jpg',            alt: 'KFC delivery trucks — graphic design wrap',              cat: 'vehicles' },
-  { src: '/images/vehicles/vehicle-krispy-kreme-trucks-wrap-design.jpg',   alt: 'Krispy Kreme delivery trucks — Joy in a Box wrap design', cat: 'vehicles' },
-  { src: '/images/vehicles/vehicle-tgi-fridays-trucks-wrap-design.jpg',    alt: 'TGI Fridays delivery trucks — graphic design wrap',       cat: 'vehicles' },
-  { src: '/images/vehicles/vehicle-pizza-hut-trucks-wrap-design.jpg',      alt: 'Pizza Hut delivery trucks — graphic design wrap',        cat: 'vehicles' },
-];
+const vehicleImages: { src: string; alt: string; cat: string }[] = [];
 
 const signageImages = [
   { src: '/images/portfolio/signage-sol-restaurant-outdoor-flags.jpg',       alt: 'SOL Restaurant — outdoor feather flags',                 cat: 'signage' },
