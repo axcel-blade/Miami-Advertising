@@ -11,8 +11,7 @@ const links = [
 <header class="navbar" id="navbar">
   <div class="container nav-inner">
     <a href="#home" class="nav-logo">
-      <img src="/images/logo.jpeg" alt="Miami Advertising logo" class="logo-img" />
-      <span class="logo-text">MIAMI<span>ADVERTISING</span></span>
+      <img src="/images/logomark-and-wordmark.png" alt="Miami Advertising" class="logo-img" />
     </a>
 
     <nav class="nav-links" id="nav-links">
@@ -56,29 +55,12 @@ const links = [
   }
 
   .logo-img {
-    width: 40px; height: 40px;
+    height: 52px;
+    width: auto;
     object-fit: contain;
-    border-radius: 4px;
     flex-shrink: 0;
-    background: #fff;
-  }
-
-  .logo-text {
-    font-family: var(--font-head);
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    line-height: 1;
-    display: flex;
-    flex-direction: column;
-    letter-spacing: 2px;
-  }
-
-  .logo-text span {
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: 4px;
-    color: rgba(255,255,255,.6);
+    /* white background is baked into the PNG — add a subtle glow on dark nav */
+    filter: drop-shadow(0 0 8px rgba(255,255,255,.08));
   }
 
   .nav-links {

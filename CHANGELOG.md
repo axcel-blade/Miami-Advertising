@@ -5,6 +5,15 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [1.1.0] — 2026-06-13
+
+### Changed
+- Replaced `logo.jpeg` (icon only) with `logomark-and-wordmark.png` (full M mark + MIAMI ADVERTISING text) in Navbar, Hero, and Footer
+- Removed all duplicate wordmark text elements alongside the logo — the PNG is now the single source of the brand name
+- Navbar logo height: 52px auto-width; Hero: 140px; Footer: 80px
+
+---
+
 ## [1.0.0] — 2026-06-13
 
 ### Added
