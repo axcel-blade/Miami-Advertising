@@ -5,6 +5,24 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [1.3.0] — 2026-06-13
+
+### Added
+- Full SEO optimisation across the site
+- Open Graph meta tags (`og:title`, `og:description`, `og:image`, `og:url`, `og:type`, `og:locale`, `og:site_name`)
+- Twitter Card meta tags (`twitter:card`, `twitter:title`, `twitter:description`, `twitter:image`)
+- `<meta name="keywords">` and `<meta name="author">` tags
+- `<meta name="robots">` with `index, follow, max-image-preview:large`
+- `<link rel="canonical">` auto-set from `Astro.url.href`
+- JSON-LD Organization structured data (schema.org) with address, contact point, area served, and known topics
+- `@astrojs/sitemap` integration — auto-generates `/sitemap-index.xml` and `/sitemap-0.xml` at build time
+- `public/robots.txt` pointing to sitemap URL
+- `astro.config.mjs` updated with `site: 'https://www.miamiadv.ae'`
+- `Layout.astro` Props expanded: `keywords`, `ogImage`, `canonical` (all optional with sensible defaults)
+- Expanded default `description` meta to include service keywords
+
+---
+
 ## [1.2.0] — 2026-06-13
 
 ### Changed

@@ -2,22 +2,99 @@
 interface Props {
   title?: string;
   description?: string;
+  keywords?: string;
+  ogImage?: string;
+  canonical?: string;
 }
-const { title = 'Miami Advertising – Empower Your Needs', description = 'Miami Advertising is a regional Sharjah-based advertising, production, marketing and event management company.' } = Astro.props;
+
+const {
+  title       = 'Miami Advertising – Empower Your Needs',
+  description = 'Miami Advertising is a regional advertising, production, marketing and event management company based in Sharjah, UAE. Vehicle wraps, signage, exhibition booths, visual merchandising and more.',
+  keywords    = 'advertising agency Sharjah, vehicle wraps UAE, signage Sharjah, exhibition booths UAE, visual merchandising, branding agency UAE, Miami Advertising, outdoor advertising',
+  ogImage     = '/images/logo.png',
+  canonical   = Astro.url.href,
+} = Astro.props;
+
+const siteName = 'Miami Advertising';
+const siteUrl  = 'https://www.miamiadv.ae';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: siteName,
+  url: siteUrl,
+  logo: `${siteUrl}/images/logo.png`,
+  description,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Industrial Area 13, Shed No. 3',
+    addressLocality: 'Sharjah',
+    addressCountry: 'AE',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+971-6-542-0994',
+    contactType: 'customer service',
+    email: 'info@miamiadv.ae',
+    availableLanguage: ['English', 'Arabic'],
+  },
+  areaServed: {
+    '@type': 'GeoCircle',
+    geoMidpoint: { '@type': 'GeoCoordinates', latitude: 25.3, longitude: 55.4 },
+    geoRadius: '200000',
+  },
+  knowsAbout: [
+    'Advertising', 'Branding', 'Vehicle Graphics', 'Signage', 'Exhibition Booths',
+    'Visual Merchandising', 'Digital Printing', 'Event Management',
+  ],
+};
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary meta -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords"    content={keywords} />
+    <meta name="author"      content={siteName} />
+    <meta name="robots"      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical"    href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:site_name"   content={siteName} />
+    <meta property="og:title"       content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url"         content={canonical} />
+    <meta property="og:image"       content={`${siteUrl}${ogImage}`} />
+    <meta property="og:image:alt"   content={`${siteName} logo`} />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:locale"      content="en_AE" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary" />
+    <meta name="twitter:title"       content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image"       content={`${siteUrl}${ogImage}`} />
+    <meta name="twitter:image:alt"   content={`${siteName} logo`} />
+
+    <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <title>{title}</title>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <meta name="generator" content={Astro.generator} />
   </head>
   <body>
     <slot />
