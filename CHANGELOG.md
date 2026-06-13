@@ -5,6 +5,20 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [1.2.0] — 2026-06-13
+
+### Changed
+- Extracted the logo's exact colour palette from `logomark-and-wordmark.png` and applied it site-wide
+- Added 11 brand CSS custom properties (`--clr-brand-*`) and `--gradient-brand` to `Layout.astro :root`
+- Updated theme aliases: `--clr-accent` → `#b50055` (logo pink), `--clr-red` → `#e00000`, `--clr-green` → `#00ab44`, `--clr-orange` → `#f3cf00` (logo gold)
+- Hero tagline "YOUR NEEDS" gradient now uses `--gradient-brand` (full logo spectrum)
+- Hero X graphic bars recoloured to match logo quadrants: pink→purple (top-left), indigo→teal (top-right), red→crimson (bottom-left), teal→green→yellow (bottom-right)
+- Hero background triangle tints updated to brand colour rgba values
+- Services decorative triangle grids: Advertising → logo reds/crimson, Production → logo greens/teal, Marketing → logo gold/lime
+- Navbar "Get in Touch" CTA hover darkened to `#8a003e` (matches new accent)
+
+---
+
 ## [1.1.0] — 2026-06-13
 
 ### Changed

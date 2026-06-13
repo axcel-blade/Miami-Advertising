@@ -28,14 +28,38 @@ const { title = 'Miami Advertising – Empower Your Needs', description = 'Miami
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --clr-red:    #d42b2b;
-    --clr-green:  #2a7a2a;
-    --clr-orange: #e07b00;
+    /* ── Miami Advertising brand colours extracted from logomark-and-wordmark.png ── */
+    --clr-brand-pink:    #b50055;
+    --clr-brand-magenta: #9d0057;
+    --clr-brand-purple:  #631985;
+    --clr-brand-indigo:  #401d81;
+    --clr-brand-navy:    #004997;
+    --clr-brand-blue:    #00629e;
+    --clr-brand-teal:    #006f6b;
+    --clr-brand-green:   #00ab44;
+    --clr-brand-lime:    #4fad02;
+    --clr-brand-yellow:  #f3cf00;
+    --clr-brand-red:     #e00000;
+
+    /* Full-spectrum brand gradient (mirrors the logo's colour wheel) */
+    --gradient-brand: linear-gradient(135deg,
+      #b50055 0%, #9d0057 10%, #631985 22%, #401d81 34%,
+      #004997 46%, #00629e 56%, #006f6b 66%, #00ab44 76%,
+      #4fad02 84%, #f3cf00 91%, #e00000 100%);
+
+    /* ── Theme aliases ── */
+    --clr-red:    #e00000;   /* Advertising division — logo red   */
+    --clr-green:  #00ab44;   /* Production division  — logo green */
+    --clr-orange: #f3cf00;   /* Marketing division   — logo gold  */
+    --clr-accent: #b50055;   /* Primary UI accent    — logo pink  */
+
+    /* ── Neutral scale ── */
     --clr-dark:   #111111;
     --clr-mid:    #444444;
     --clr-light:  #f5f5f5;
     --clr-white:  #ffffff;
-    --clr-accent: #e8174b;
+
+    /* ── Typography & layout ── */
     --font-body:  'Inter', sans-serif;
     --font-head:  'Rajdhani', sans-serif;
     --max-w:      1280px;
