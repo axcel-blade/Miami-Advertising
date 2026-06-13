@@ -1,4 +1,11 @@
 ---
+const rawImgs = import.meta.glob<{ default: { src: string } }>(
+  '../assets/images/**/*.{jpg,jpeg,JPG,JPEG,png,PNG}',
+  { eager: true }
+);
+const img = (rel: string) =>
+  (rawImgs[`../assets/images/${rel}`]?.default?.src) ?? `/images/${rel}`;
+
 const categories = [
   { id: 'all',         label: 'All Work' },
   { id: 'signage',    label: 'Signage' },
@@ -10,54 +17,54 @@ const categories = [
 const vehicleImages: { src: string; alt: string; cat: string }[] = [];
 
 const signageImages = [
-  { src: '/images/portfolio/signage-sol-restaurant-outdoor-flags.jpg',       alt: 'SOL Restaurant — outdoor feather flags',                 cat: 'signage' },
-  { src: '/images/portfolio/signage-sol-restaurant-indoor-acrylic.jpg',      alt: 'SOL Restaurant — indoor acrylic signage close-up',       cat: 'signage' },
-  { src: '/images/portfolio/signage-sol-restaurant-exterior-view.jpg',       alt: 'SOL Restaurant — exterior signage street view',          cat: 'signage' },
-  { src: '/images/portfolio/signage-garage-the-grill-outdoor-round.jpg',     alt: 'Garage The Grill — outdoor illuminated round sign',      cat: 'signage' },
-  { src: '/images/portfolio/signage-kfc-outdoor-projecting-sign.jpg',        alt: 'KFC — outdoor projecting sign',                          cat: 'signage' },
-  { src: '/images/portfolio/signage-dubai-optical-indoor-lightbox.jpg',      alt: 'Dubai Optical — indoor lightbox sign',                   cat: 'signage' },
-  { src: '/images/portfolio/signage-dubai-optical-storefront-exterior.jpg',  alt: 'Dubai Optical — storefront exterior sign',               cat: 'signage' },
-  { src: '/images/portfolio/signage-tucano-coffee-outdoor-frontlit.jpg',     alt: 'Tucano Coffee — outdoor front-lit sign',                 cat: 'signage' },
-  { src: '/images/portfolio/signage-sfsf-building-outdoor-installation.jpg', alt: 'SFSF — large building outdoor sign installation',        cat: 'signage' },
-  { src: '/images/portfolio/signage-rodenstock-whypink-instore-display.jpg', alt: 'Rodenstock #WhyPink — in-store campaign display',        cat: 'signage' },
-  { src: '/images/portfolio/signage-dmk-aesthetic-center-indoor-acrylic.jpg',alt: 'DMK Aesthetic Center — indoor acrylic sign',             cat: 'signage' },
-  { src: '/images/portfolio/signage-schneider-electric-glass-branding.jpg',  alt: 'Schneider Electric — office glass branding',             cat: 'signage' },
-  { src: '/images/signage-burger-king-window-graphics.png',                   alt: 'Burger King — "Home of the Whopper" window graphics',     cat: 'signage' },
-  { src: '/images/signage-texas-chicken-window-graphics.png',                 alt: 'Texas Chicken — restaurant window graphics wrap',         cat: 'signage' },
+  { src: img('portfolio/signage-sol-restaurant-outdoor-flags.jpg'),       alt: 'SOL Restaurant — outdoor feather flags',                 cat: 'signage' },
+  { src: img('portfolio/signage-sol-restaurant-indoor-acrylic.jpg'),      alt: 'SOL Restaurant — indoor acrylic signage close-up',       cat: 'signage' },
+  { src: img('portfolio/signage-sol-restaurant-exterior-view.jpg'),       alt: 'SOL Restaurant — exterior signage street view',          cat: 'signage' },
+  { src: img('portfolio/signage-garage-the-grill-outdoor-round.jpg'),     alt: 'Garage The Grill — outdoor illuminated round sign',      cat: 'signage' },
+  { src: img('portfolio/signage-kfc-outdoor-projecting-sign.jpg'),        alt: 'KFC — outdoor projecting sign',                          cat: 'signage' },
+  { src: img('portfolio/signage-dubai-optical-indoor-lightbox.jpg'),      alt: 'Dubai Optical — indoor lightbox sign',                   cat: 'signage' },
+  { src: img('portfolio/signage-dubai-optical-storefront-exterior.jpg'),  alt: 'Dubai Optical — storefront exterior sign',               cat: 'signage' },
+  { src: img('portfolio/signage-tucano-coffee-outdoor-frontlit.jpg'),     alt: 'Tucano Coffee — outdoor front-lit sign',                 cat: 'signage' },
+  { src: img('portfolio/signage-sfsf-building-outdoor-installation.jpg'), alt: 'SFSF — large building outdoor sign installation',        cat: 'signage' },
+  { src: img('portfolio/signage-rodenstock-whypink-instore-display.jpg'), alt: 'Rodenstock #WhyPink — in-store campaign display',        cat: 'signage' },
+  { src: img('portfolio/signage-dmk-aesthetic-center-indoor-acrylic.jpg'),alt: 'DMK Aesthetic Center — indoor acrylic sign',             cat: 'signage' },
+  { src: img('portfolio/signage-schneider-electric-glass-branding.jpg'),  alt: 'Schneider Electric — office glass branding',             cat: 'signage' },
+  { src: img('signage-burger-king-window-graphics.png'),                   alt: 'Burger King — "Home of the Whopper" window graphics',    cat: 'signage' },
+  { src: img('signage-texas-chicken-window-graphics.png'),                 alt: 'Texas Chicken — restaurant window graphics wrap',        cat: 'signage' },
 ];
 
 const brandingImages = [
-  { src: '/images/portfolio/branding-kfc-store-window-display.jpg',          alt: 'KFC — full-store window graphic display',                cat: 'branding' },
-  { src: '/images/portfolio/branding-texas-chicken-burger-king-facade.jpg',  alt: 'Texas Chicken & Burger King — dual-brand facade wrap',   cat: 'branding' },
-  { src: '/images/portfolio/branding-baldinini-store-floor-graphic.jpg',     alt: 'Baldinini — large-format store floor graphic',           cat: 'branding' },
-  { src: '/images/portfolio/branding-elisabetta-franchi-store-interior.jpg', alt: 'Elisabetta Franchi — store interior display branding',   cat: 'branding' },
-  { src: '/images/portfolio/visual-merch-kido-store-interior.jpg',           alt: 'Kido — store interior visual merchandising',             cat: 'branding' },
-  { src: '/images/branding-glomar-stationery-design.png',                    alt: 'Glomar Trading — corporate stationery set design',       cat: 'branding' },
-  { src: '/images/branding-italy-hairfashion-invitation-design.png',         alt: 'IT&LY Hair Fashion — Beauty Studio grand opening invite', cat: 'branding' },
-  { src: '/images/branding-magic-energy-drink-launch-pack.png',              alt: 'Magic energy drink — product launch DM pack design',     cat: 'branding' },
-  { src: '/images/branding-amro-style-brochure-design.png',                  alt: 'Amro Style — bi-fold brochure design',                   cat: 'branding' },
-  { src: '/images/branding-gnt-catalogue-design.png',                        alt: 'GNT — product catalogue design',                        cat: 'branding' },
-  { src: '/images/branding-glomar-website-mockup.png',                       alt: 'Glomar Trading — responsive website design mockup',      cat: 'branding' },
-  { src: '/images/branding-glomar-3d-logo.png',                              alt: 'Glomar Trading — 3D rendered logo mark',                 cat: 'branding' },
-  { src: '/images/branding-italy-hairfashion-catalogue-design.png',          alt: 'IT&LY Hair Fashion — Aquarely product catalogue spread', cat: 'branding' },
-  { src: '/images/branding-ssm-brochure-design.png',                         alt: 'SSM — tri-fold brochure design',                        cat: 'branding' },
-  { src: '/images/branding-ssm-stationery-design.png',                       alt: 'SSM — corporate stationery set design',                  cat: 'branding' },
+  { src: img('portfolio/branding-kfc-store-window-display.jpg'),          alt: 'KFC — full-store window graphic display',                cat: 'branding' },
+  { src: img('portfolio/branding-texas-chicken-burger-king-facade.jpg'),  alt: 'Texas Chicken & Burger King — dual-brand facade wrap',   cat: 'branding' },
+  { src: img('portfolio/branding-baldinini-store-floor-graphic.jpg'),     alt: 'Baldinini — large-format store floor graphic',           cat: 'branding' },
+  { src: img('portfolio/branding-elisabetta-franchi-store-interior.jpg'), alt: 'Elisabetta Franchi — store interior display branding',   cat: 'branding' },
+  { src: img('portfolio/visual-merch-kido-store-interior.jpg'),           alt: 'Kido — store interior visual merchandising',             cat: 'branding' },
+  { src: img('branding-glomar-stationery-design.png'),                    alt: 'Glomar Trading — corporate stationery set design',       cat: 'branding' },
+  { src: img('branding-italy-hairfashion-invitation-design.png'),         alt: 'IT&LY Hair Fashion — Beauty Studio grand opening invite', cat: 'branding' },
+  { src: img('branding-magic-energy-drink-launch-pack.png'),              alt: 'Magic energy drink — product launch DM pack design',     cat: 'branding' },
+  { src: img('branding-amro-style-brochure-design.png'),                  alt: 'Amro Style — bi-fold brochure design',                   cat: 'branding' },
+  { src: img('branding-gnt-catalogue-design.png'),                        alt: 'GNT — product catalogue design',                         cat: 'branding' },
+  { src: img('branding-glomar-website-mockup.png'),                       alt: 'Glomar Trading — responsive website design mockup',      cat: 'branding' },
+  { src: img('branding-glomar-3d-logo.png'),                              alt: 'Glomar Trading — 3D rendered logo mark',                 cat: 'branding' },
+  { src: img('branding-italy-hairfashion-catalogue-design.png'),          alt: 'IT&LY Hair Fashion — Aquarely product catalogue spread', cat: 'branding' },
+  { src: img('branding-ssm-brochure-design.png'),                         alt: 'SSM — tri-fold brochure design',                         cat: 'branding' },
+  { src: img('branding-ssm-stationery-design.png'),                       alt: 'SSM — corporate stationery set design',                  cat: 'branding' },
 ];
 
 const exhibitionImages = [
-  { src: '/images/exhibition-soko-butterfly-krups-stands.png',  alt: 'Exhibition stands — SOKO, Butterfly, Krups, Extrude designs', cat: 'exhibition' },
-  { src: '/images/exhibition-green-mazda-tabasco-stands.png',   alt: 'Exhibition stands — organic green brand, Mazda, Tabasco',     cat: 'exhibition' },
-  { src: '/images/exhibition-sadia-organic-stands.png',         alt: 'Exhibition stands — Sadia branded event stand',               cat: 'exhibition' },
-  { src: '/images/exhibition-frg-garrard-red-stands.png',       alt: 'Exhibition stands — FRG, Garrard jewellery kiosk, red stand', cat: 'exhibition' },
+  { src: img('exhibition-soko-butterfly-krups-stands.png'),  alt: 'Exhibition stands — SOKO, Butterfly, Krups, Extrude designs', cat: 'exhibition' },
+  { src: img('exhibition-green-mazda-tabasco-stands.png'),   alt: 'Exhibition stands — organic green brand, Mazda, Tabasco',     cat: 'exhibition' },
+  { src: img('exhibition-sadia-organic-stands.png'),         alt: 'Exhibition stands — Sadia branded event stand',               cat: 'exhibition' },
+  { src: img('exhibition-frg-garrard-red-stands.png'),       alt: 'Exhibition stands — FRG, Garrard jewellery kiosk, red stand', cat: 'exhibition' },
 ];
 
 const productionImages = [
-  { src: '/images/portfolio/production-buffalo-wild-wings-display-stand.jpg', alt: 'Buffalo Wild Wings — branded display stand production', cat: 'production' },
-  { src: '/images/portfolio/production-canvas-multiprint-wall-art.jpg',       alt: 'Multi-panel canvas print — ship sunset wall art',       cat: 'production' },
-  { src: '/images/portfolio/production-italy-hairfashion-acrylic-display.jpg',alt: 'IT&LY Hair Fashion — acrylic desk display stand',       cat: 'production' },
-  { src: '/images/portfolio/production-retail-display-stand-tiered-green.jpg',alt: 'Custom tiered retail display stand — green finish',     cat: 'production' },
-  { src: '/images/portfolio/production-unitech-3d-foam-letters.jpg',          alt: 'Unitech — 3D foam letter production in workshop',       cat: 'production' },
-  { src: '/images/portfolio/production-dynamik-feather-flags-event.jpg',      alt: 'Dynamik — feather flag stands for event',               cat: 'production' },
+  { src: img('portfolio/production-buffalo-wild-wings-display-stand.jpg'), alt: 'Buffalo Wild Wings — branded display stand production', cat: 'production' },
+  { src: img('portfolio/production-canvas-multiprint-wall-art.jpg'),       alt: 'Multi-panel canvas print — ship sunset wall art',       cat: 'production' },
+  { src: img('portfolio/production-italy-hairfashion-acrylic-display.jpg'),alt: 'IT&LY Hair Fashion — acrylic desk display stand',       cat: 'production' },
+  { src: img('portfolio/production-retail-display-stand-tiered-green.jpg'),alt: 'Custom tiered retail display stand — green finish',     cat: 'production' },
+  { src: img('portfolio/production-unitech-3d-foam-letters.jpg'),          alt: 'Unitech — 3D foam letter production in workshop',       cat: 'production' },
+  { src: img('portfolio/production-dynamik-feather-flags-event.jpg'),      alt: 'Dynamik — feather flag stands for event',               cat: 'production' },
 ];
 
 const allImages = [...vehicleImages, ...signageImages, ...brandingImages, ...exhibitionImages, ...productionImages];

@@ -1,4 +1,6 @@
 ---
+import logoSrc from '../assets/images/logo.png';
+
 interface Props {
   title?: string;
   description?: string;
@@ -11,7 +13,7 @@ const {
   title       = 'Miami Advertising – Empower Your Needs',
   description = 'Miami Advertising is a regional advertising, production, marketing and event management company based in Sharjah, UAE. Vehicle wraps, signage, exhibition booths, visual merchandising and more.',
   keywords    = 'advertising agency Sharjah, vehicle wraps UAE, signage Sharjah, exhibition booths UAE, visual merchandising, branding agency UAE, Miami Advertising, outdoor advertising',
-  ogImage     = '/images/logo.png',
+  ogImage     = logoSrc.src,
   canonical   = Astro.url.href,
 } = Astro.props;
 
