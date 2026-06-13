@@ -16,9 +16,7 @@
   <div class="container hero-inner">
     <div class="hero-content">
       <div class="hero-logo">
-        <div class="logo-icon">
-          <div class="logo-m-large">M</div>
-        </div>
+        <img src="/images/logo.jpeg" alt="Miami Advertising logo" class="hero-logo-img" />
         <div class="logo-wordmark">
           <span class="wm-miami">MIAMI</span>
           <span class="wm-adv">ADVERTISING</span>
@@ -109,20 +107,12 @@
     margin-bottom: 32px;
   }
 
-  .logo-icon {
-    width: 64px; height: 64px;
-    background: linear-gradient(135deg,#e63946,#f4a261,#2a9d8f,#457b9d,#9b2226);
+  .hero-logo-img {
+    width: 72px; height: 72px;
+    object-fit: contain;
     border-radius: 8px;
-    display: grid;
-    place-items: center;
+    background: #fff;
     flex-shrink: 0;
-  }
-
-  .logo-m-large {
-    font-family: var(--font-head);
-    font-size: 36px;
-    font-weight: 700;
-    color: #fff;
   }
 
   .logo-wordmark {
