@@ -1,4 +1,5 @@
 ---
+import logoSrc from '../assets/images/logo.png';
 const year = new Date().getFullYear();
 const links = [
   { label: 'About',     href: '#about' },
@@ -22,7 +23,7 @@ const services = [
 
     <div class="footer-brand">
       <div class="foot-logo">
-        <img src="/images/logo.png" alt="Miami Advertising logo" class="foot-logo-img" />
+        <img src={logoSrc.src} alt="Miami Advertising logo" class="foot-logo-img" />
         <span class="foot-wordmark">
           <span class="fwm-miami">MIAMI</span>
           <span class="fwm-adv">ADVERTISING</span>
