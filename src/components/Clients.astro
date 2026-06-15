@@ -1,10 +1,47 @@
 ---
-const clients = [
+const rawMiami = import.meta.glob<{ default: { src: string } }>(
+  '../assets/miami/**/*.{jpg,jpeg,JPG,JPEG,png,PNG}',
+  { eager: true }
+);
+
+function firstImg(folder: string) {
+  const entry = Object.entries(rawMiami).find(([k]) => k.includes(folder));
+  return entry?.[1]?.default?.src ?? '';
+}
+
+const featuredClients = [
+  {
+    name: 'Pizza Hut',
+    folder: '/pizza hut/',
+    desc: 'Vehicle wraps, store signage & visual merchandising for Pizza Hut UAE fleet and restaurants.',
+    color: '#d62300',
+  },
+  {
+    name: 'KFC',
+    folder: '/kfc/',
+    desc: 'Full-store window displays, exterior signage and branding campaigns across KFC Dubai outlets.',
+    color: '#e4002b',
+  },
+  {
+    name: 'Hardees',
+    folder: '/Hardees/',
+    desc: 'Vehicle fleet wraps, store graphics and promotional production for Hardees UAE.',
+    color: '#ffcc00',
+  },
+  {
+    name: 'Krispy Kreme',
+    folder: '/kk/',
+    desc: 'Brand activation, window graphics and in-store display production for Krispy Kreme.',
+    color: '#005f3f',
+  },
+];
+
+const otherClients = [
   'RTA', 'HSBC', "IT&LY Hair Fashion", 'SQJT', 'Dubai Islamic Bank',
   'ADPC', 'Dar Al Ber Society', 'Total', 'Topcon', 'Harvey Nichols',
   'Paris Gallery', 'Salam', 'Dunhill London', 'Aswaaq', 'City of Arabia',
   'Mazda', 'Bayer HealthCare', 'Roche', 'Roccobarocco', 'Infinity TV',
-  'Imdad', 'Burger King', 'Texas', 'Mega Wraps',
+  'Imdad', 'Burger King', 'Texas Chicken', 'Mega Wraps',
 ];
 ---
 
@@ -13,13 +50,39 @@ const clients = [
     <div class="clients-header reveal">
       <span class="section-label">Trusted By</span>
       <h2 class="section-title">Our <span>Clients</span></h2>
-      <p class="section-body">We have proudly served leading regional and international brands across multiple industries.</p>
+      <p class="section-body">We have proudly served leading food, retail and corporate brands across Dubai and the wider UAE region.</p>
+    </div>
+
+    <!-- Featured clients with images -->
+    <div class="featured-clients reveal">
+      {featuredClients.map(c => {
+        const imgSrc = firstImg(c.folder);
+        return (
+          <div class="fc-card">
+            {imgSrc && (
+              <div class="fc-img-wrap">
+                <img src={imgSrc} alt={`${c.name} — Miami Advertising work`} loading="lazy" />
+                <div class="fc-img-overlay"></div>
+              </div>
+            )}
+            <div class="fc-body">
+              <div class="fc-name-badge" style={`background: ${c.color}`}>{c.name}</div>
+              <p class="fc-desc">{c.desc}</p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Other clients grid -->
+    <div class="other-clients-label reveal">
+      <span>More brands we've worked with</span>
     </div>
 
     <div class="clients-grid reveal">
-      {clients.map(name => (
+      {otherClients.map(name => (
         <div class="client-card">
-          <div class="client-initials">{name.split(' ').slice(0,2).map(w => w[0]).join('').toUpperCase().slice(0,2)}</div>
+          <div class="client-initials">{name.split(' ').slice(0,2).map((w: string) => w[0]).join('').toUpperCase().slice(0,2)}</div>
           <span class="client-name">{name}</span>
         </div>
       ))}
@@ -41,21 +104,112 @@ const clients = [
   .clients-header .section-title { color: #fff; }
   .clients-header .section-body  { color: rgba(255,255,255,.5); margin-inline: auto; }
 
+  /* Featured clients */
+  .featured-clients {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 64px;
+  }
+
+  .fc-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+  }
+
+  .fc-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0,0,0,.4);
+  }
+
+  .fc-img-wrap {
+    position: relative;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+  }
+
+  .fc-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease;
+  }
+
+  .fc-card:hover .fc-img-wrap img { transform: scale(1.06); }
+
+  .fc-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,.5) 0%, transparent 60%);
+  }
+
+  .fc-body {
+    padding: 20px;
+  }
+
+  .fc-name-badge {
+    display: inline-block;
+    color: #fff;
+    font-family: var(--font-head);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+
+  .fc-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+    line-height: 1.6;
+  }
+
+  /* Other clients divider */
+  .other-clients-label {
+    text-align: center;
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  .other-clients-label::before,
+  .other-clients-label::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: calc(50% - 140px);
+    height: 1px;
+    background: rgba(255,255,255,.1);
+  }
+
+  .other-clients-label::before { left: 0; }
+  .other-clients-label::after  { right: 0; }
+
+  .other-clients-label span {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.3);
+  }
+
+  /* Other clients grid */
   .clients-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
   }
 
   .client-card {
     background: rgba(255,255,255,.04);
     border: 1px solid rgba(255,255,255,.07);
     border-radius: 8px;
-    padding: 24px 16px;
+    padding: 20px 14px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     transition: background .2s, border-color .2s, transform .2s;
   }
 
@@ -66,29 +220,34 @@ const clients = [
   }
 
   .client-initials {
-    width: 48px; height: 48px;
+    width: 44px; height: 44px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--clr-accent), #f4a261);
     display: grid;
     place-items: center;
     font-family: var(--font-head);
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
     color: #fff;
     flex-shrink: 0;
   }
 
   .client-name {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
-    color: rgba(255,255,255,.7);
+    color: rgba(255,255,255,.65);
     text-align: center;
     letter-spacing: .5px;
     line-height: 1.3;
   }
 
+  @media (max-width: 900px) {
+    .featured-clients { grid-template-columns: repeat(2, 1fr); }
+  }
+
   @media (max-width: 480px) {
-    .clients-grid { grid-template-columns: repeat(3, 1fr); }
-    .client-card  { padding: 16px 10px; }
+    .featured-clients  { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .clients-grid      { grid-template-columns: repeat(3, 1fr); }
+    .client-card       { padding: 14px 8px; }
   }
 </style>

@@ -34,16 +34,31 @@ const marketing = [
   'Interior Displays & Cosmetic Promotions',
   'Customer Profitability Management',
 ];
+
+const rawMiami = import.meta.glob<{ default: { src: string } }>(
+  '../assets/miami/**/*.{jpg,jpeg,JPG,JPEG,png,PNG}',
+  { eager: true }
+);
+
+function getClientImgs(folder: string, count: number) {
+  return Object.entries(rawMiami)
+    .filter(([k]) => k.includes(folder))
+    .slice(0, count)
+    .map(([, v]) => v.default.src);
+}
+
+const kfcImgs    = getClientImgs('/kfc/', 4);
+const pizzaImgs  = getClientImgs('/pizza hut/', 4);
+const hardeesImgs = getClientImgs('/Hardees/', 4);
 ---
 
 <section class="services" id="services">
 
-  <!-- Section intro -->
   <div class="services-intro">
     <div class="container">
       <span class="section-label">What We Do</span>
       <h2 class="section-title">Our <span>Sections</span></h2>
-      <p class="section-body">Three specialized divisions working together to deliver complete brand solutions.</p>
+      <p class="section-body">Three specialized divisions working together to deliver complete brand solutions across Dubai and the UAE.</p>
     </div>
   </div>
 
@@ -61,10 +76,21 @@ const marketing = [
           {advertising.map(item => <li><span class="list-arrow">›</span>{item}</li>)}
         </ul>
       </div>
-      <div class="svc-deco adv-deco reveal" aria-hidden="true">
-        <div class="deco-grid">
-          {Array.from({length: 9}).map((_, i) => <div class={`deco-cell c${i}`}></div>)}
-        </div>
+      <div class="svc-imgs reveal" aria-label="KFC advertising work samples">
+        {kfcImgs.length > 0 ? (
+          <div class="img-mosaic">
+            {kfcImgs.map((src, i) => (
+              <div class={`img-cell ic${i}`}>
+                <img src={src} alt="KFC — Miami Advertising work" loading="lazy" />
+              </div>
+            ))}
+            <div class="client-badge adv-badge">KFC</div>
+          </div>
+        ) : (
+          <div class="deco-grid">
+            {Array.from({length: 9}).map((_, i) => <div class={`deco-cell c${i}`}></div>)}
+          </div>
+        )}
       </div>
     </div>
   </div>
@@ -72,10 +98,21 @@ const marketing = [
   <!-- Production -->
   <div class="svc-block prod-block" id="production">
     <div class="container svc-inner reverse">
-      <div class="svc-deco prod-deco reveal" aria-hidden="true">
-        <div class="deco-grid">
-          {Array.from({length: 9}).map((_, i) => <div class={`deco-cell c${i}`}></div>)}
-        </div>
+      <div class="svc-imgs reveal" aria-label="Pizza Hut production work samples">
+        {pizzaImgs.length > 0 ? (
+          <div class="img-mosaic">
+            {pizzaImgs.map((src, i) => (
+              <div class={`img-cell ic${i}`}>
+                <img src={src} alt="Pizza Hut — Miami Advertising work" loading="lazy" />
+              </div>
+            ))}
+            <div class="client-badge prod-badge">Pizza Hut</div>
+          </div>
+        ) : (
+          <div class="deco-grid">
+            {Array.from({length: 9}).map((_, i) => <div class={`deco-cell c${i}`}></div>)}
+          </div>
+        )}
       </div>
       <div class="svc-text reveal">
         <div class="svc-label">
@@ -83,7 +120,7 @@ const marketing = [
           <span class="svc-name">PRODUCTION</span>
         </div>
         <h2 class="svc-title">Your Business is at the Heart of<br /><strong>Our Business</strong></h2>
-        <p class="svc-desc">We trek mountains to bring solutions to all our clients. MIAMI has a network of reliable third-party suppliers who offer high quality products at great value for money.</p>
+        <p class="svc-desc">We trek mountains to bring solutions to all our clients. MIAMI has a network of reliable third-party suppliers who offer high quality products at great value for money across Dubai and the Emirates.</p>
         <ul class="svc-list">
           {production.map(item => <li><span class="list-arrow">›</span>{item}</li>)}
         </ul>
@@ -100,15 +137,26 @@ const marketing = [
           <span class="svc-name">MARKETING &amp; VISUAL MERCHANDISING</span>
         </div>
         <h2 class="svc-title">We Understand Your<br /><strong>Business Needs</strong></h2>
-        <p class="svc-desc">We keep an eye on market trends and industry evolution to tailor-made the ideal marketing plan that fits your budget and guarantees your organisation a positive return on investment.</p>
+        <p class="svc-desc">We keep an eye on market trends and industry evolution to tailor-make the ideal marketing plan that fits your budget and guarantees your organisation a positive return on investment in Dubai's competitive market.</p>
         <ul class="svc-list">
           {marketing.map(item => <li><span class="list-arrow">›</span>{item}</li>)}
         </ul>
       </div>
-      <div class="svc-deco mkt-deco reveal" aria-hidden="true">
-        <div class="deco-grid">
-          {Array.from({length: 9}).map((_, i) => <div class={`deco-cell c${i}`}></div>)}
-        </div>
+      <div class="svc-imgs reveal" aria-label="Hardees marketing work samples">
+        {hardeesImgs.length > 0 ? (
+          <div class="img-mosaic">
+            {hardeesImgs.map((src, i) => (
+              <div class={`img-cell ic${i}`}>
+                <img src={src} alt="Hardees — Miami Advertising work" loading="lazy" />
+              </div>
+            ))}
+            <div class="client-badge mkt-badge">Hardees</div>
+          </div>
+        ) : (
+          <div class="deco-grid">
+            {Array.from({length: 9}).map((_, i) => <div class={`deco-cell c${i}`}></div>)}
+          </div>
+        )}
       </div>
     </div>
   </div>
@@ -125,7 +173,6 @@ const marketing = [
 
   .services-intro .section-body { margin-inline: auto; }
 
-  /* Blocks */
   .svc-block { padding: 80px 0; }
 
   .adv-block { background: #fafafa; }
@@ -215,9 +262,55 @@ const marketing = [
   .prod-block .list-arrow { color: var(--clr-green); }
   .mkt-block  .list-arrow { color: var(--clr-orange); }
 
-  /* Decorative triangle grids */
-  .svc-deco { display: flex; justify-content: center; align-items: center; }
+  /* Image mosaic */
+  .svc-imgs { display: flex; justify-content: center; align-items: center; }
 
+  .img-mosaic {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 6px;
+    width: 100%;
+    max-width: 460px;
+    aspect-ratio: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 48px rgba(0,0,0,.15);
+  }
+
+  .img-cell {
+    overflow: hidden;
+    background: #e0e0e0;
+  }
+
+  .img-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease;
+  }
+
+  .img-cell:hover img { transform: scale(1.08); }
+
+  .client-badge {
+    position: absolute;
+    bottom: 14px; right: 14px;
+    color: #fff;
+    font-family: var(--font-head);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+  }
+
+  .adv-badge  { background: rgba(224,0,0,.85); }
+  .prod-badge { background: rgba(0,171,68,.85); }
+  .mkt-badge  { background: rgba(181,0,85,.85); }
+
+  /* Deco fallback */
   .deco-grid {
     display: grid;
     grid-template-columns: repeat(3, 120px);
@@ -230,45 +323,19 @@ const marketing = [
     opacity: .7;
   }
 
-  /* Advertising deco — logo red/crimson palette */
-  .adv-deco .c0 { background: #e00000; }
-  .adv-deco .c1 { background: #9d0057; clip-path: polygon(0 0, 100% 0, 50% 100%); }
-  .adv-deco .c2 { background: #e00000; opacity: .4; }
-  .adv-deco .c3 { background: #9d0057; clip-path: polygon(0 0, 100% 0, 50% 100%); opacity:.5; }
-  .adv-deco .c4 { background: #b50055; }
-  .adv-deco .c5 { background: #e00000; clip-path: polygon(0 0, 100% 0, 50% 100%); opacity:.6; }
-  .adv-deco .c6 { background: #9d0057; opacity:.3; }
-  .adv-deco .c7 { background: #b50055; clip-path: polygon(0 0, 100% 0, 50% 100%); opacity:.5; }
-  .adv-deco .c8 { background: #e00000; opacity:.8; }
-
-  /* Production deco — logo green/teal palette */
-  .prod-deco .c0 { background: #006f6b; }
-  .prod-deco .c1 { background: #00ab44; clip-path: polygon(0 0, 100% 0, 50% 100%); }
-  .prod-deco .c2 { background: #4fad02; opacity: .4; }
-  .prod-deco .c3 { background: #006f6b; clip-path: polygon(0 0, 100% 0, 50% 100%); opacity:.5; }
-  .prod-deco .c4 { background: #00ab44; }
-  .prod-deco .c5 { background: #4fad02; clip-path: polygon(0 0, 100% 0, 50% 100%); opacity:.6; }
-  .prod-deco .c6 { background: #006f6b; opacity:.3; }
-  .prod-deco .c7 { background: #00ab44; clip-path: polygon(0 0, 100% 0, 50% 100%); opacity:.5; }
-  .prod-deco .c8 { background: #4fad02; opacity:.8; }
-
-  /* Marketing deco — logo gold/yellow palette */
-  .mkt-deco .c0 { background: #f3cf00; }
-  .mkt-deco .c1 { background: #4fad02; clip-path: polygon(0 0, 100% 0, 50% 100%); }
-  .mkt-deco .c2 { background: #f3cf00; opacity: .4; }
-  .mkt-deco .c3 { background: #4fad02; clip-path: polygon(0 0, 100% 0, 50% 100%); opacity:.5; }
-  .mkt-deco .c4 { background: #e00000; }
-  .mkt-deco .c5 { background: #f3cf00; clip-path: polygon(0 0, 100% 0, 50% 100%); opacity:.6; }
-  .mkt-deco .c6 { background: #e00000; opacity:.3; }
-  .mkt-deco .c7 { background: #4fad02; clip-path: polygon(0 0, 100% 0, 50% 100%); opacity:.5; }
-  .mkt-deco .c8 { background: #f3cf00; opacity:.8; }
+  .adv-block .deco-cell:nth-child(odd)  { background: #e00000; }
+  .adv-block .deco-cell:nth-child(even) { background: #9d0057; clip-path: polygon(0 0, 100% 0, 50% 100%); }
+  .prod-block .deco-cell:nth-child(odd)  { background: #006f6b; }
+  .prod-block .deco-cell:nth-child(even) { background: #00ab44; clip-path: polygon(0 0, 100% 0, 50% 100%); }
+  .mkt-block .deco-cell:nth-child(odd)  { background: #f3cf00; }
+  .mkt-block .deco-cell:nth-child(even) { background: #4fad02; clip-path: polygon(0 0, 100% 0, 50% 100%); }
 
   @media (max-width: 900px) {
     .svc-inner, .svc-inner.reverse {
       grid-template-columns: 1fr;
       direction: ltr;
     }
-    .svc-deco { display: none; }
+    .svc-imgs { display: none; }
     .svc-list { grid-template-columns: 1fr; }
   }
 </style>

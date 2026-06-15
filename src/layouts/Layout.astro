@@ -1,5 +1,5 @@
 ---
-import logoSrc from '../assets/images/logo.png';
+import logoSrc from '../assets/miami/logo-06.jpg';
 
 interface Props {
   title?: string;
@@ -10,9 +10,9 @@ interface Props {
 }
 
 const {
-  title       = 'Miami Advertising – Empower Your Needs',
-  description = 'Miami Advertising is a regional advertising, production, marketing and event management company based in Sharjah, UAE. Vehicle wraps, signage, exhibition booths, visual merchandising and more.',
-  keywords    = 'advertising agency Sharjah, vehicle wraps UAE, signage Sharjah, exhibition booths UAE, visual merchandising, branding agency UAE, Miami Advertising, outdoor advertising',
+  title       = 'Miami Advertising – Empower Your Needs | Dubai, UAE',
+  description = 'Miami Advertising is a Dubai-based advertising, production, marketing and event management company. Vehicle wraps, signage, exhibition booths, visual merchandising and branding for Pizza Hut, KFC, Hardees and more.',
+  keywords    = 'advertising agency Dubai, vehicle wraps UAE, signage Dubai, exhibition booths UAE, visual merchandising, branding agency Dubai, Miami Advertising, outdoor advertising Dubai, KFC branding, Pizza Hut vehicle wrap',
   ogImage     = logoSrc.src,
   canonical   = Astro.url.href,
 } = Astro.props;
@@ -30,7 +30,7 @@ const jsonLd = {
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Industrial Area 13, Shed No. 3',
-    addressLocality: 'Sharjah',
+    addressLocality: 'Dubai',
     addressCountry: 'AE',
   },
   contactPoint: {
