@@ -13,17 +13,15 @@ function clientImgs(folder: string, label: string, cat: string) {
 const pizzaHutImgs  = clientImgs('/pizza hut/',  'Pizza Hut',    'pizza-hut');
 const kfcImgs       = clientImgs('/kfc/',         'KFC',          'kfc');
 const hardeesImgs   = clientImgs('/Hardees/',     'Hardees',      'hardees');
-const kkImgs        = clientImgs('/kk/',          'Krispy Kreme', 'kk');
 const otherImgs     = clientImgs('/other/',       'Client',       'other');
 
-const allImages = [...pizzaHutImgs, ...kfcImgs, ...hardeesImgs, ...kkImgs, ...otherImgs];
+const allImages = [...pizzaHutImgs, ...kfcImgs, ...hardeesImgs, ...otherImgs];
 
 const categories = [
   { id: 'all',       label: 'All Work' },
   { id: 'pizza-hut', label: 'Pizza Hut' },
   { id: 'kfc',       label: 'KFC' },
   { id: 'hardees',   label: 'Hardees' },
-  { id: 'kk',        label: 'Krispy Kreme' },
   { id: 'other',     label: 'Other' },
 ];
 ---
