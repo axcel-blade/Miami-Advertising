@@ -5,6 +5,24 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [1.4.0] — 2026-06-15
+
+### Changed
+- Dubai redesign: all Sharjah references replaced with Dubai across components, SEO metadata, and JSON-LD
+- Replaced all placeholder/old assets with miami assets folder images and logos
+- Renamed all "Screen Shot" image files to descriptive names (hardees-work-*, kfc-work-*, etc.)
+- Moved all assets out of `miami/` subfolder directly into `src/assets/`
+- Used `miami-logo-01.jpg` as the single static logo across Navbar, Hero, Footer, and Layout
+- Removed wordmark text (MIAMI / ADVERTISING) and logo rotation animation — logo only
+- Hero mosaic: replaced decorative X graphic with 6 real client images (Pizza Hut / KFC / Hardees)
+- Services: replaced triangle grids with 2×2 client image mosaics per service block
+- Portfolio: filterable gallery (All / Pizza Hut / KFC / Hardees / Other) using `import.meta.glob`
+- Clients: 3 featured clients (Pizza Hut, KFC, Hardees) — Krispy Kreme removed
+- About: inline production images next to paragraphs; factory image with Dubai/UAE badge
+- `package.json` version bumped to `1.4.0`
+
+---
+
 ## [1.3.0] — 2026-06-13
 
 ### Added
