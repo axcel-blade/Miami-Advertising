@@ -1,9 +1,5 @@
 ---
-import logo1 from '../assets/miami-logo-01.jpg';
-import logo2 from '../assets/miami-logo-02.jpg';
-import logo3 from '../assets/miami-logo-03.jpg';
-import logo4 from '../assets/miami-logo-04.jpg';
-const logos = [logo1.src, logo2.src, logo3.src, logo4.src];
+import logoSrc from '../assets/miami-logo-01.jpg';
 
 const rawMiami = import.meta.glob<{ default: { src: string } }>(
   '../assets/**/*.{jpg,jpeg,JPG,JPEG,png,PNG}',
@@ -33,15 +29,7 @@ const heroImages = Object.entries(rawMiami)
   <div class="container hero-inner">
     <div class="hero-content">
       <div class="hero-logo">
-        <div class="hero-logo-cycle">
-          {logos.map((src, i) => (
-            <img src={src} alt="Miami Advertising logo" class={`hero-logo-img logo-frame logo-frame-${i}`} />
-          ))}
-        </div>
-        <span class="hero-wordmark">
-          <span class="hwm-miami">MIAMI</span>
-          <span class="hwm-adv">ADVERTISING</span>
-        </span>
+        <img src={logoSrc.src} alt="Miami Advertising" class="hero-logo-img" />
       </div>
 
       <h1 class="hero-tagline">EMPOWER<br /><em>YOUR BRAND</em></h1>
@@ -136,61 +124,11 @@ const heroImages = Object.entries(rawMiami)
     margin-bottom: 32px;
   }
 
-  .hero-logo-cycle {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    flex-shrink: 0;
-  }
-
   .hero-logo-img {
     height: 80px;
-    width: 80px;
-    object-fit: cover;
-    border-radius: 6px;
-  }
-
-  .logo-frame {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    animation: logoCycle 8s infinite;
-  }
-
-  .logo-frame-0 { animation-delay: 0s; }
-  .logo-frame-1 { animation-delay: 2s; }
-  .logo-frame-2 { animation-delay: 4s; }
-  .logo-frame-3 { animation-delay: 6s; }
-
-  @keyframes logoCycle {
-    0%   { opacity: 1; }
-    20%  { opacity: 1; }
-    25%  { opacity: 0; }
-    95%  { opacity: 0; }
-    100% { opacity: 1; }
-  }
-
-  .hero-wordmark {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-    gap: 4px;
-  }
-
-  .hwm-miami {
-    font-family: var(--font-head);
-    font-size: 42px;
-    font-weight: 700;
-    letter-spacing: 6px;
-    color: #fff;
-  }
-
-  .hwm-adv {
-    font-family: var(--font-head);
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 6px;
-    color: rgba(255,255,255,.65);
+    width: auto;
+    object-fit: contain;
+    display: block;
   }
 
   .hero-tagline {
