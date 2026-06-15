@@ -369,8 +369,19 @@ const heroImages = [slide1.src, slide2.src, slide3.src, slide4.src, slide5.src];
   }
 
   @media (max-width: 900px) {
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-visual { display: none; }
+    .hero-inner {
+      grid-template-columns: 1fr;
+      padding-top: 120px;
+    }
+
+    .hero-visual {
+      display: flex;
+      height: 280px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-visual { height: 220px; }
   }
 
   @media (max-width: 480px) {
