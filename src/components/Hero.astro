@@ -1,8 +1,8 @@
 ---
-import logoSrc from '../assets/miami/miami-logo-main.jpg';
+import logoSrc from '../assets/miami-logo-main.jpg';
 
 const rawMiami = import.meta.glob<{ default: { src: string } }>(
-  '../assets/miami/**/*.{jpg,jpeg,JPG,JPEG,png,PNG}',
+  '../assets/**/*.{jpg,jpeg,JPG,JPEG,png,PNG}',
   { eager: true }
 );
 
