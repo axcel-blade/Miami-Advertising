@@ -16,6 +16,7 @@ const links = [
     </a>
 
     <nav class="nav-links" id="nav-links">
+      <button class="nav-close" id="nav-close" aria-label="Close menu">&times;</button>
       {links.map(l => <a href={l.href}>{l.label}</a>)}
       <a href="#contact" class="nav-cta">Get in Touch</a>
     </nav>
@@ -121,6 +122,19 @@ const links = [
     .nav-links.open { right: 0; }
 
     .nav-links a { font-size: 16px; }
+
+    .nav-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+    }
   }
 </style>
 
@@ -133,7 +147,10 @@ const links = [
     navbar.classList.toggle('scrolled', window.scrollY > 50);
   });
 
+  const navClose = document.getElementById('nav-close')!;
+
   burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navClose.addEventListener('click', () => navLinks.classList.remove('open'));
 
   navLinks.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => navLinks.classList.remove('open'));
