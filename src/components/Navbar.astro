@@ -1,5 +1,9 @@
 ---
-import logoSrc from '../assets/miami-logo-main.jpg';
+import logo1 from '../assets/miami-logo-01.jpg';
+import logo2 from '../assets/miami-logo-02.jpg';
+import logo3 from '../assets/miami-logo-03.jpg';
+import logo4 from '../assets/miami-logo-04.jpg';
+const logos = [logo1.src, logo2.src, logo3.src, logo4.src];
 const links = [
   { label: 'About',      href: '#about' },
   { label: 'Services',   href: '#services' },
@@ -12,7 +16,11 @@ const links = [
 <header class="navbar" id="navbar">
   <div class="container nav-inner">
     <a href="#home" class="nav-logo">
-      <img src={logoSrc.src} alt="Miami Advertising logo" class="logo-img" />
+      <div class="logo-cycle">
+        {logos.map((src, i) => (
+          <img src={src} alt="Miami Advertising logo" class={`logo-img logo-frame logo-frame-${i}`} />
+        ))}
+      </div>
       <span class="logo-wordmark">
         <span class="wm-miami">MIAMI</span>
         <span class="wm-adv">ADVERTISING</span>
@@ -59,12 +67,38 @@ const links = [
     text-decoration: none;
   }
 
+  .logo-cycle {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+
   .logo-img {
     height: 44px;
     width: 44px;
     object-fit: cover;
     border-radius: 4px;
-    flex-shrink: 0;
+  }
+
+  .logo-frame {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    animation: logoCycle 8s infinite;
+  }
+
+  .logo-frame-0 { animation-delay: 0s; }
+  .logo-frame-1 { animation-delay: 2s; }
+  .logo-frame-2 { animation-delay: 4s; }
+  .logo-frame-3 { animation-delay: 6s; }
+
+  @keyframes logoCycle {
+    0%   { opacity: 1; }
+    20%  { opacity: 1; }
+    25%  { opacity: 0; }
+    95%  { opacity: 0; }
+    100% { opacity: 1; }
   }
 
   .logo-wordmark {
