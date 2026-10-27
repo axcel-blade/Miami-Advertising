@@ -52,8 +52,12 @@ npm run preview
 
 ## Contact
 
-**Miami Advertising**  
-IND. Area 13, Shed No. 3, Behind Al Shola School  
-P.O.Box 44292 – Sharjah, UAE  
-T: +971 6 542 0994 | F: +971 6 542 0995  
-E: info@miamiadv.ae | W: www.miamiadv.ae
+**Miami Advertising**<br />
+IND Area 13, Shed No. 3<br />
+Sharjah, UAE<br />
+P: +971 6 542 0994<br />
+E: Info@miamiadv.ae | W: www.miamiadv.ae
+
+## Developer
+
+Footer development credit: [Axcel-Blade](https://github.com/Axcel-Blade).
