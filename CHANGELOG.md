@@ -5,6 +5,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [Unreleased]
+
+### Changed
+- Updated the documented Miami Advertising contact address, phone number, and email address
+- Added an Axcel-Blade GitHub profile credit to the website footer
+
+---
+
 ## [1.4.0] — 2026-06-15
 
 ### Changed
